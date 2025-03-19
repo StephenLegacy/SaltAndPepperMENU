@@ -1,0 +1,22 @@
+/* Make the entire section take the full viewport height */
+#menu {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Container to make iframe fill the space */
+  .pdf-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Iframe full size, hiding browser controls */
+  .pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: auto;
+  }
+  
