@@ -1,0 +1,95 @@
+/* Carousel Container */
+.carousel-container {
+  width: 95%;
+  max-width: 1250px;
+  background: linear-gradient(135deg, #ff3333, #990000);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #f9f9f9;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Carousel Slide */
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel Images */
+.carousel-slide img {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #ff3333, #990000);
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 10px;
+  object-fit: contain;
+  max-height: 1250px;
+  margin: 0 auto;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: none; /* Hide all images by default */
+}
+
+.carousel-slide img.active {
+  display: block; /* Show only the active image */
+}
+
+/* Background Animation for Carousel Section */
+#menu {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carousel-bg-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #f0f0f0, #e0e0e0, #f0f0f0);
+  background-size: 600% 600%;
+  animation: backgroundShift 20s ease infinite;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Carousel Buttons */
+.carousel-btns {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-btns button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-btns button:hover {
+  background-color: #555;
+}
+
+/* Slide Counter */
+.slide-counter {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
