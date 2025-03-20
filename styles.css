@@ -50,7 +50,7 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.8)), url('assets/hero-bg.jpg') no-repeat center center/cover;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.8)), url('place.jpeg') no-repeat center center/cover;
   position: relative;
   overflow: hidden;
 }
