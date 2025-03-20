@@ -5,10 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salt & Pepper Cafe & Bistro | Kilimani</title>
+  <!-- External CSS Stylesheets -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="caroussel.css"> <!-- Check correct spelling: 'carousel.css' -->
 </head>
 
 <body>
+  <!-- Header Section -->
   <header class="glass">
     <h1>Salt & Pepper Cafe & Bistro</h1>
     <nav>
@@ -19,52 +22,76 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content">
       <h2>Welcome to a <span class="highlight">Tasteful Experience</span></h2>
       <p>Where great food meets great vibes — <strong>Kilimani, Nairobi</strong></p>
-      <button id="menuBtn" href="menu.pdf" target="_blank" >🍽 View Our Menu</button>
-    
+      <button id="menuBtn">🍽 View Our Menu</button> <!-- Optional: Add event to scroll to menu -->
     </div>
   </section>
-  
 
+  <!-- About Us Section -->
   <section id="about" class="glass fade-in">
     <h2>About Us</h2>
-    <p>Salt & Pepper Cafe & Bistro offers a cozy ambiance and a modern twist on classic dishes. Located in Kilimani, we're your go-to spot for delicious meals, <br>
+    <p>Salt & Pepper Cafe & Bistro offers a cozy ambiance and a modern twist on classic dishes. Located in Kilimani, we're your go-to spot for delicious meals,
       crafted coffees, and unforgettable moments.</p>
   </section>
 
+  <!-- Menu Section with Carousel -->
   <section id="menu" class="glass fade-in">
     <h2>Our Menu</h2>
-    <div class="pdf-container">
-      <!-- <a href="SALT & PAPER | MENU.pdf" target="_blank">View Our Menu (PDF)</a> -->
-      <iframe src="SALT & PAPER | MENU.pdf" width="100%" height="1200px" style="border:none;"></iframe>
-<!-- 
-      <iframe src="https://docs.google.com/gview?url=https://stephenlegacy.github.io/SaltAndPepperMENU/SALT & PAPER | MENU.pdf&embedded=true" Google -->
-        style="width:100%; height:600px;" frameborder="0"></iframe>
 
+    <!-- Carousel Container -->
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carousel-slide">
+        <!-- Menu Images -->
+        <img src="PAGE 1.png" alt="Breakfast Menu">
+        <img src="1.png" alt="Lunch Menu">
+        <img src="2.png" alt="Drinks Menu">
+        <img src="PAGE 3.jpg" alt="Specials Menu">
+        <img src="PAGE 4.png" alt="Desserts">
+        <img src="PAGE 5.png" alt="Desserts Continued">
+      </div>
 
+      <!-- Carousel Navigation Buttons -->
+      <div class="carousel-btns">
+        <button id="prevBtn">Prev</button>
+        <button id="nextBtn">Next</button>
+      </div>
+
+      <!-- Slide Counter -->
+      <div class="slide-counter" id="slide-counter">Slide 1 of 6</div>
     </div>
   </section>
-  
 
+  <!-- Location Section -->
   <section id="location" class="glass fade-in">
     <h2>Find Us</h2>
     <p>We are located at Kilimani, Nairobi - come dine with us!</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.812969684018!2d36.77869347480499!3d-1.2987516356395803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10e9eac9fbef%3A0x17aa647f43f62bc!2sKilimani%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1710856565153!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    <!-- Google Maps Embed -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.812969684018!2d36.77869347480499!3d-1.2987516356395803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10e9eac9fbef%3A0x17aa647f43f62bc!2sKilimani%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1710856565153!5m2!1sen!2ske"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="glass fade-in">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@saltpaperbistro.co.ke">info@saltpaperbistro.co.ke</a></p>
-    <p style="color: black">Phone: +254101777100</p>
+    <p>Email: 
+      <a href="mailto:info@saltpepperbistro.co.ke">info@saltpepperbistro.co.ke</a>
+      <!-- Corrected domain from 'saltpaperbistro' to 'saltpepperbistro' -->
+    </p>
+    <p style="color: black;">Phone: +254 101 777 100</p>
   </section>
 
+  <!-- Footer -->
   <footer class="glass">
     <p>&copy; 2025 Salt & Pepper Cafe & Bistro | Designed with ❤️ in Kilimani</p>
   </footer>
 
+  <!-- External JS for Carousel Functionality -->
   <script src="script.js"></script>
 </body>
 
