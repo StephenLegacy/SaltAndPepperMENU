@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  const carouselSlide = document.getElementById('carousel-slide');
+const carouselSlide = document.getElementById('carousel-slide');
 const images = carouselSlide.querySelectorAll('img');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
