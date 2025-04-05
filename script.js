@@ -1,95 +1,91 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.3 });
-  
-    sections.forEach(section => observer.observe(section));
-  
-    // Smooth scroll for menu button
-    document.getElementById('menuBtn').addEventListener('click', () => {
-      document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+  // Fade-in effect
+  const sections = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
     });
-  });
-  
+  }, { threshold: 0.3 });
 
-const carouselSlide = document.getElementById('carousel-slide');
-const images = carouselSlide.querySelectorAll('img');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const slideCounter = document.getElementById('slide-counter');
+  sections.forEach(section => observer.observe(section));
 
-let counter = 0;
-let autoSlideInterval;
-let pauseTimeout;
+  // Optional smooth scroll if menuBtn exists
+  const menuBtn = document.getElementById('menuBtn');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      document.getElementById('food-menu').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 
-// Update slide counter
-function updateCounter() {
-  slideCounter.textContent = `Slide ${counter + 1} of ${images.length}`;
-}
+  // Carousel configuration for each type
+  const carousels = ['food', 'bar', 'cocktail'];
 
-// Show current slide and hide others
-function showSlide(index) {
-  // Hide all images
-  images.forEach((img) => img.classList.remove('active'));
+  carousels.forEach(name => {
+    const slideContainer = document.getElementById(`carousel-${name}`);
+    const counterDisplay = document.getElementById(`counter-${name}`);
+    const prevBtn = document.querySelector(`.prevBtn[data-carousel="${name}"]`);
+    const nextBtn = document.querySelector(`.nextBtn[data-carousel="${name}"]`);
 
-  // Show the current image
-  images[index].classList.add('active');
-  updateCounter();
-}
+    let currentIndex = 0;
+    let intervalId;
+    let pauseTimeout;
 
-// Move to next slide
-function nextSlide() {
-  counter = (counter + 1) % images.length;
-  showSlide(counter);
-}
+    // Get updated image list every time
+    const getImages = () => slideContainer.querySelectorAll('img');
 
-// Move to previous slide
-function prevSlide() {
-  counter = (counter - 1 + images.length) % images.length;
-  showSlide(counter);
-}
+    function showSlide(i) {
+      const images = getImages();
+      images.forEach((img, idx) => {
+        img.style.display = (idx === i) ? 'block' : 'none';
+      });
 
-// Start auto-slide with a 30-second timer
-function startAutoSlide() {
-  autoSlideInterval = setInterval(() => {
-    nextSlide();
-  }, 30000); // 30 seconds
-}
+      counterDisplay.textContent = `Slide ${i + 1} of ${images.length}`;
+    }
 
-// Stop auto-slide
-function stopAutoSlide() {
-  clearInterval(autoSlideInterval);
-}
+    function nextSlide() {
+      const images = getImages();
+      currentIndex = (currentIndex + 1) % images.length;
+      showSlide(currentIndex);
+    }
 
-// Handle user interaction (pause auto-slide for 2 minutes)
-function handleUserInteraction() {
-  stopAutoSlide();
-  clearTimeout(pauseTimeout);
-  pauseTimeout = setTimeout(() => {
+    function prevSlide() {
+      const images = getImages();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showSlide(currentIndex);
+    }
+
+    function startAutoSlide() {
+      intervalId = setInterval(() => {
+        nextSlide();
+      }, 30000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(intervalId);
+    }
+
+    function pauseAutoSlide() {
+      stopAutoSlide();
+      clearTimeout(pauseTimeout);
+      pauseTimeout = setTimeout(startAutoSlide, 120000);
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      pauseAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      pauseAutoSlide();
+    });
+
+    // Show first slide on load
+    showSlide(currentIndex);
     startAutoSlide();
-  }, 120000); // Pause for 2 minutes
-}
 
-// Event listeners for buttons
-nextBtn.addEventListener('click', () => {
-  nextSlide();
-  handleUserInteraction();
+    // Keep current image visible on resize
+    window.addEventListener('resize', () => showSlide(currentIndex));
+  });
 });
-
-prevBtn.addEventListener('click', () => {
-  prevSlide();
-  handleUserInteraction();
-});
-
-// Recalculate on window resize
-window.addEventListener('resize', () => {
-  showSlide(counter);
-});
-
-// Initial Setup
-startAutoSlide();
-showSlide(counter); // Show the first slide initially
