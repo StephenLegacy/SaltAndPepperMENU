@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Salt & Pepper</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #ff3333;
+      --primary-dark: #990000;
+      --text-light: #ffffff;
+      --text-dark: #000000;
+      --glass-bg: rgba(0, 0, 0, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #000000, #333333, #990000);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Glass Morphism */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo {
+      height: 30px;
+      width: auto;
+    }
+
+    .restaurant-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    /* Thank You Content */
+    .thank-you-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .thank-you-content {
+      max-width: 800px;
+      text-align: center;
+      padding: 3rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .thank-you-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #fff, var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .thank-you-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255,51,51,0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .thank-you-content {
+        padding: 2rem;
+      }
+      
+      .thank-you-content h1 {
+        font-size: 2.2rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="glass">
+    <div class="container">
+      <div class="nav-wrapper">
+        <div class="logo-title">
+          <img src="clearLogo.png" alt="Salt & Pepper Logo" class="logo" />
+          <span class="restaurant-name">Salt & Pepper</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Thank You Content -->
+  <main class="thank-you-container">
+    <div class="thank-you-content glass">
+      <h1>Thank You!</h1>
+      <p>We've received your application and will contact you soon.</p>
+      <p>In the meantime, feel free to explore more about us or leave a review.</p>
+      
+      <div class="action-buttons">
+        <a href="index.html" class="btn btn-primary">
+          <i class="fas fa-home"></i> Return Home
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-envelope"></i> Contact Us
+        </a>
+        <a href="https://g.page/r/CQ5jv6XJ5XZ5EBM/review" target="_blank" class="btn btn-secondary">
+          <i class="fab fa-google"></i> Leave a Google Review
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="glass">
+    <div class="container">
+      <p>&copy; 2025 Salt & Pepper Cafe & Bistro | Designed with ❤️ in Kilimani</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="careers.html">Careers</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple JavaScript for thank-you page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add smooth scroll for contact link
+      document.querySelector('a[href="#contact"]')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html#contact';
+      });
+
+      // Add animation to buttons on hover
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          btn.style.transform = 'translateY(-2px)';
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

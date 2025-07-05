@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Fade-in effect
+  // Initialize all components
+  initFadeInEffects();
+  initMenuButton();
+  initCarousels();
+  initMobileMenu();
+  initScrollEffects();
+});
+
+function initFadeInEffects() {
   const sections = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -8,18 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.3 });
 
   sections.forEach(section => observer.observe(section));
+}
 
-  // Optional smooth scroll if menuBtn exists
+function initMenuButton() {
   const menuBtn = document.getElementById('menuBtn');
   if (menuBtn) {
     menuBtn.addEventListener('click', () => {
       document.getElementById('food-menu').scrollIntoView({ behavior: 'smooth' });
     });
   }
+}
 
-  // Carousel configuration for each type
+function initCarousels() {
   const carousels = ['food', 'bar', 'cocktail'];
-
+  
   carousels.forEach(name => {
     const slideContainer = document.getElementById(`carousel-${name}`);
     const counterDisplay = document.getElementById(`counter-${name}`);
@@ -30,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId;
     let pauseTimeout;
 
-    // Get updated image list every time
-    const getImages = () => slideContainer.querySelectorAll('img');
+    function getImages() {
+      return slideContainer.querySelectorAll('img');
+    }
 
     function showSlide(i) {
       const images = getImages();
       images.forEach((img, idx) => {
         img.style.display = (idx === i) ? 'block' : 'none';
       });
-
       counterDisplay.textContent = `Slide ${i + 1} of ${images.length}`;
     }
 
@@ -55,17 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startAutoSlide() {
-      intervalId = setInterval(() => {
-        nextSlide();
-      }, 30000);
-    }
-
-    function stopAutoSlide() {
-      clearInterval(intervalId);
+      intervalId = setInterval(nextSlide, 30000);
     }
 
     function pauseAutoSlide() {
-      stopAutoSlide();
+      clearInterval(intervalId);
       clearTimeout(pauseTimeout);
       pauseTimeout = setTimeout(startAutoSlide, 120000);
     }
@@ -81,30 +85,42 @@ document.addEventListener('DOMContentLoaded', () => {
       pauseAutoSlide();
     });
 
-    // Show first slide on load
+    // Initialize
     showSlide(currentIndex);
     startAutoSlide();
-
-    // Keep current image visible on resize
     window.addEventListener('resize', () => showSlide(currentIndex));
   });
-});
-
-// Mobile menu toggle functionality
-function toggleMenu() {
-  const navbar = document.getElementById('navbar');
-  if (navbar.style.display === 'flex') {
-    navbar.style.display = 'none';
-  } else {
-    navbar.style.display = 'flex';
-  }
 }
 
-// Close menu when clicking on a link (for mobile)
-document.querySelectorAll('#navbar a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      toggleMenu();
+function initMobileMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbar = document.getElementById('navbar');
+
+  function toggleMenu() {
+    navbar.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking on a link
+  document.querySelectorAll('#navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 991) {
+        toggleMenu();
+      }
+    });
+  });
+}
+
+function initScrollEffects() {
+  const header = document.querySelector('header');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
   });
-});
+}
