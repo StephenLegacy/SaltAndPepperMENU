@@ -175,6 +175,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         showFeedback('success', 'Application submitted successfully! We will contact you soon.');
         form.reset();
+        setTimeout(() => {
+          window.location.href = 'thank-you.html';
+        }, 3000); // 2000 milliseconds = 2 seconds
+        
 
       } catch (error) {
         console.error('Submission error:', error);
