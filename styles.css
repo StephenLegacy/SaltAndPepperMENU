@@ -40,6 +40,158 @@ nav a::after {
   transition: width 0.4s ease;
 }
 
+/* Sleek Header Styles */
+header.glass {
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 0;
+  border-radius: 0;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.8rem 0;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.restaurant-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+#navbar {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+#navbar a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+#navbar a:hover {
+  color: #ff3333;
+}
+
+#navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff3333;
+  transition: width 0.3s ease;
+}
+
+#navbar a:hover::after {
+  width: 100%;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mode-toggle, .menu-toggle {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  transition: color 0.3s ease;
+}
+
+.mode-toggle:hover, .menu-toggle:hover {
+  color: #ff3333;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ff3333, #cc0000);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #cc0000, #ff3333);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(255,51,51,0.3);
+}
+
+/* Mobile menu toggle - hidden on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  #navbar {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper {
+    padding: 0.6rem 0;
+  }
+  
+  #navbar {
+    display: none; /* Will be toggled by JS */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  #navbar a {
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .cta-button {
+    display: none;
+  }
+}
+
 nav a:hover::after {
   width: 100%;
 }
