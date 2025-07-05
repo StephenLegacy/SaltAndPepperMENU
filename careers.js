@@ -153,23 +153,23 @@ document.addEventListener('DOMContentLoaded', function() {
           throw new Error(`Form submission failed with status: ${formSubmitResponse.status}`);
         }
 
-        const googleSheetsResponse = await fetch("https://script.google.com/macros/s/AKfycbw7iy7mUGs1hz-DdinswMj1JpPyq7Lkmd7ceexRsedrQkUQJEQPmyR4bhXwV5ggITc/exec", {
-          method: 'POST',
-          body: formData
-        });
+        // const googleSheetsResponse = await fetch("https://script.google.com/macros/s/AKfycbw7iy7mUGs1hz-DdinswMj1JpPyq7Lkmd7ceexRsedrQkUQJEQPmyR4bhXwV5ggITc/exec", {
+        //   method: 'POST',
+        //   body: formData
+        // });
 
-        if (!googleSheetsResponse.ok) {
-          console.warn(`Google Sheets submission failed with status: ${googleSheetsResponse.status}`);
-        }
+        // if (!googleSheetsResponse.ok) {
+        //   console.warn(`Google Sheets submission failed with status: ${googleSheetsResponse.status}`);
+        // }
 
-        const whatsappApiUrl = `https://api.callmebot.com/whatsapp.php?phone=+254716631667&text=${encodeURIComponent(
-          `New Job Application:\nName: ${nameInput.value}\nEmail: ${emailInput.value}\nPhone: ${phoneInput.value}\nPosition: ${positionInput.value}`
-        )}&apikey=8466042`;
+        // const whatsappApiUrl = `https://api.callmebot.com/whatsapp.php?phone=+254716631667&text=${encodeURIComponent(
+        //   `New Job Application:\nName: ${nameInput.value}\nEmail: ${emailInput.value}\nPhone: ${phoneInput.value}\nPosition: ${positionInput.value}`
+        // )}&apikey=8466042`;
 
-        const whatsappResponse = await fetch(whatsappApiUrl);
-        if (!whatsappResponse.ok) {
-          console.warn(`WhatsApp notification failed with status: ${whatsappResponse.status}`);
-        }
+        // const whatsappResponse = await fetch(whatsappApiUrl);
+        // if (!whatsappResponse.ok) {
+        //   console.warn(`WhatsApp notification failed with status: ${whatsappResponse.status}`);
+        // }
 
         showFeedback('success', 'Application submitted successfully! We will contact you soon.');
         form.reset();
