@@ -1,0 +1,404 @@
+/* Careers Page Specific Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #000000, #333333, #990000);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Sleek Header Styles */
+header.glass {
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.8rem 0;
+  }
+  
+  .logo-title {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .logo {
+    height: 30px;
+    width: auto;
+  }
+  
+  .restaurant-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  #navbar {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  #navbar a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  #navbar a:hover {
+    color: #ff3333;
+  }
+  
+  #navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff3333;
+    transition: width 0.3s ease;
+  }
+  
+  #navbar a:hover::after {
+    width: 100%;
+  }
+  
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .mode-toggle, .menu-toggle {
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+    transition: color 0.3s ease;
+  }
+  
+  .mode-toggle:hover, .menu-toggle:hover {
+    color: #ff3333;
+  }
+  
+  .cta-button {
+    background: linear-gradient(135deg, #ff3333, #cc0000);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+  
+  .cta-button:hover {
+    background: linear-gradient(135deg, #cc0000, #ff3333);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(255,51,51,0.3);
+  }
+  
+  /* Mobile menu toggle - hidden on desktop */
+  .menu-toggle {
+    display: none;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    #navbar {
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-wrapper {
+      padding: 0.6rem 0;
+    }
+    
+    #navbar {
+      display: none; /* Will be toggled by JS */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.9);
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 0;
+    }
+    
+    #navbar a {
+      padding: 1rem 2rem;
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: block;
+    }
+    
+    .cta-button {
+      display: none;
+    }
+  }
+
+/* Hero Section */
+#careers-hero {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+              url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+}
+
+#careers-hero .hero-content {
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+#careers-hero h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: none;
+  background: linear-gradient(90deg, #fff, #ff3333);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#careers-hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.highlight {
+  color: #ff3333;
+  font-weight: 700;
+}
+
+/* Jobs Grid */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.job-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.job-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255, 51, 51, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.job-icon {
+  font-size: 2.5rem;
+  color: #ff3333;
+  margin-bottom: 1rem;
+}
+
+.job-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.job-details {
+  color: #ddd;
+}
+
+.job-details p {
+  margin-bottom: 0.8rem;
+}
+
+.job-details ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.job-details li {
+  margin-bottom: 0.5rem;
+}
+
+.salary-range {
+  background: rgba(255, 51, 51, 0.2);
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+/* Benefits Section */
+.benefits-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  background: rgba(255, 51, 51, 0.1);
+  transform: translateY(-5px);
+}
+
+.benefit-item i {
+  font-size: 2.5rem;
+  color: #ff3333;
+  margin-bottom: 1rem;
+}
+
+.benefit-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.benefit-item p {
+  color: #ccc;
+}
+
+/* Application Form */
+#careers-form {
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px #ff3333;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ddd;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #ff3333, #990000);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #990000, #ff3333);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 51, 51, 0.3);
+}
+
+/* Footer */
+footer.glass {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.footer-links {
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  color: #ddd;
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff3333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #careers-hero h2 {
+    font-size: 2.5rem;
+  }
+  
+  #careers-hero p {
+    font-size: 1.2rem;
+  }
+  
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  #careers-hero h2 {
+    font-size: 2rem;
+  }
+  
+  .job-card {
+    padding: 1.5rem;
+  }
+}
