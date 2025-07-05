@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Mobile Menu Toggle
   function toggleMenu() {
     const navbar = document.getElementById('navbar');
@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Assign toggle to the menu icon
-  const menuToggleButton = document.querySelector('.menu-toggle'); // Changed here to match your HTML icon
+  const menuToggleButton = document.querySelector('.menu-toggle');
   if (menuToggleButton) {
     menuToggleButton.addEventListener('click', toggleMenu);
   }
 
-  // Close menu when link is clicked (on mobile)
+  // Close menu on link click (mobile only)
   document.querySelectorAll('#navbar a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 992 && document.getElementById('navbar').classList.contains('active')) {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     header.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // Reveal job/benefit items on scroll
+  // Scroll Reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('dark-mode');
   }
 
-  // Smooth Scroll for anchor links
+  // Smooth Scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Form Handling
+  // Form Logic
   const form = document.getElementById('careers-form');
   if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const nameInput = form.elements['name'];
@@ -141,35 +141,37 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const formData = new FormData(form);
 
+        // ✅ Main form submission to FormSubmit.co
         const formSubmitResponse = await fetch(form.action, {
           method: 'POST',
           body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
+          headers: { 'Accept': 'application/json' }
         });
 
         if (!formSubmitResponse.ok) {
           throw new Error(`Form submission failed with status: ${formSubmitResponse.status}`);
         }
 
-        // const googleSheetsResponse = await fetch("https://script.google.com/macros/s/AKfycbw7iy7mUGs1hz-DdinswMj1JpPyq7Lkmd7ceexRsedrQkUQJEQPmyR4bhXwV5ggITc/exec", {
-        //   method: 'POST',
-        //   body: formData
-        // });
+        // ❌ Commented out - causing issues in production (likely due to CORS or HTTPS mismatch)
+        /*
+        const googleSheetsResponse = await fetch("https://script.google.com/macros/s/AKfycbw7iy7mUGs1hz-DdinswMj1JpPyq7Lkmd7ceexRsedrQkUQJEQPmyR4bhXwV5ggITc/exec", {
+          method: 'POST',
+          body: formData
+        });
 
-        // if (!googleSheetsResponse.ok) {
-        //   console.warn(`Google Sheets submission failed with status: ${googleSheetsResponse.status}`);
-        // }
+        if (!googleSheetsResponse.ok) {
+          console.warn(`Google Sheets submission failed with status: ${googleSheetsResponse.status}`);
+        }
 
-        // const whatsappApiUrl = `https://api.callmebot.com/whatsapp.php?phone=+254716631667&text=${encodeURIComponent(
-        //   `New Job Application:\nName: ${nameInput.value}\nEmail: ${emailInput.value}\nPhone: ${phoneInput.value}\nPosition: ${positionInput.value}`
-        // )}&apikey=8466042`;
+        const whatsappApiUrl = `https://api.callmebot.com/whatsapp.php?phone=+254716631667&text=${encodeURIComponent(
+          `New Job Application:\nName: ${nameInput.value}\nEmail: ${emailInput.value}\nPhone: ${phoneInput.value}\nPosition: ${positionInput.value}`
+        )}&apikey=8466042`;
 
-        // const whatsappResponse = await fetch(whatsappApiUrl);
-        // if (!whatsappResponse.ok) {
-        //   console.warn(`WhatsApp notification failed with status: ${whatsappResponse.status}`);
-        // }
+        const whatsappResponse = await fetch(whatsappApiUrl);
+        if (!whatsappResponse.ok) {
+          console.warn(`WhatsApp notification failed with status: ${whatsappResponse.status}`);
+        }
+        */
 
         showFeedback('success', 'Application submitted successfully! We will contact you soon.');
         form.reset();
