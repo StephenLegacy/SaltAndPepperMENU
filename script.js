@@ -89,3 +89,22 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => showSlide(currentIndex));
   });
 });
+
+// Mobile menu toggle functionality
+function toggleMenu() {
+  const navbar = document.getElementById('navbar');
+  if (navbar.style.display === 'flex') {
+    navbar.style.display = 'none';
+  } else {
+    navbar.style.display = 'flex';
+  }
+}
+
+// Close menu when clicking on a link (for mobile)
+document.querySelectorAll('#navbar a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      toggleMenu();
+    }
+  });
+});
