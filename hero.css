@@ -1,0 +1,52 @@
+/* Hero Background */
+#hero {
+    /* background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center center / cover no-repeat; */
+    /* Use the below line if you want to use a local image instead */
+    background: url('hero.jpeg') center center / cover no-repeat;
+    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  
+  /* Optional: Dark overlay for readability */
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Change opacity for lighter/darker overlay */
+    z-index: 1;
+  }
+  
+  #hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 2rem;
+    color: #fff;
+  }
+  
+  #hero .highlight {
+    color: #f7c948; /* Golden highlight */
+  }
+  
+  #menuBtn {
+    padding: 12px 24px;
+    background-color: #f7c948;
+    border: none;
+    color: #000;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #menuBtn:hover {
+    background-color: #faca15;
+  }
+  

@@ -6,6 +6,7 @@
   <title>Salt & Pepper | Careers</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="careers.css">
+  <link rel="icon" type="image/png" href="clearLogo.png">
 </head>
 <body>
   <!-- Header -->
@@ -177,18 +178,29 @@
         <h2>Ready to Apply?</h2>
         <p>Fill out the form below and we'll get back to you soon</p>
       </div>
-      
-      <form id="careers-form" class="glass" action="https://formsubmit.co/hiring@saltandpepper.co.ke" method="POST" enctype="multipart/form-data">
+  
+      <form id="careers-form" class="glass"
+            action="https://formsubmit.co/hiring@saltandpepper.co.ke"
+            method="POST"
+            enctype="multipart/form-data">
+            
         <!-- Anti-spam fields -->
+        <input type="hidden" name="_from" value="">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_captcha" value="false">
-        
+  
         <!-- Redirect after submission -->
         <input type="hidden" name="_next" value="thank-you.html">
-        
+  
         <!-- Email subject -->
         <input type="hidden" name="_subject" value="New Job Application - Salt & Pepper">
-        
+  
+        <!-- Set sender's email dynamically -->
+        <input type="hidden" name="_replyto" id="form-replyto">
+  
+        <!-- Auto-response -->
+        <input type="hidden" name="_autoresponse" value="Thank you for your application to Salt & Pepper! We've received your information and will contact you soon.">
+  
         <!-- Form fields -->
         <div class="form-group">
           <label for="name">Full Name</label>
