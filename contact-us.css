@@ -1,0 +1,92 @@
+:root {
+  --primary: #ff6b6b;         /* Vibrant red/pink */
+  --primary-dark: #c0392b;    /* Deep red */
+  --text-dark: #1f1f1f;       /* Near-black text */
+}
+
+/* Contact Section */
+#contact {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  color: var(--text-dark);
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#contact p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+#contact a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+.contact-details i {
+  margin-right: 8px;
+  color: var(--primary-dark);
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: var(--text-dark);
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-dark);
+}
+
+/* Floating Contact Icon */
+#contactIcon {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--text-dark);
+  padding: 15px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(255, 51, 51, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  text-align: center;
+}
+
+#contactIcon:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  transform: translateY(-5px);
+}
+
+/* Floating Contact Info Box */
+#contactInfo {
+  position: fixed;
+  bottom: 100px;
+  left: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-dark);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
